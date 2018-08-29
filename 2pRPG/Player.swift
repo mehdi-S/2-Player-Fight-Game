@@ -9,10 +9,10 @@
 import Foundation
 
 class Player {
-    private var _name: String = "Player"
-    private var _hp: Int = 100
-    private var _AtkPower: Int = 15
-    private var _wincount: Int = 0
+    fileprivate var _name: String = "Player"
+    fileprivate var _hp: Int = 100
+    fileprivate var _AtkPower: Int = 15
+    fileprivate var _wincount: Int = 0
     
     var hp: Int {
         get {
@@ -69,7 +69,7 @@ class Player {
         return true
     }
     
-    func attemptAtk(attackpwr: Int) -> Bool {
+    func attemptAtk(_ attackpwr: Int) -> Bool {
         let randfail = arc4random_uniform(6)
         if randfail != 0 {
             self._hp -= attackpwr
@@ -79,7 +79,7 @@ class Player {
         }
     }
     
-    func setRandAtk(lowest: Int, highest: Int) -> Bool {
+    func setRandAtk(_ lowest: Int, highest: Int) -> Bool {
         let randatk = Int(arc4random_uniform(UInt32(highest) - UInt32(lowest)) + UInt32(lowest))
         self._AtkPower = randatk
         return true
